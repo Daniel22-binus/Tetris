@@ -72,110 +72,19 @@ public class MainMenuPanel extends JPanel {
 		play = new JLabel("Play", JLabel.CENTER);
 		play = initLabel(play);
 
-		play.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				play.setForeground(Color.BLACK);
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				play.setForeground(Color.YELLOW);
-
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				MainMenuFrame.window.remove(MainMenuPanel.this);
-				new WindowFrame();
-			}
-		});
+		play.addMouseListener(new MouseClickLabel(play));
 		add(play);
 
 		howToPlay = new JLabel("How To Play", JLabel.CENTER);
 		howToPlay = initLabel(howToPlay);
 
-		howToPlay.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				howToPlay.setForeground(Color.BLACK);
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				howToPlay.setForeground(Color.YELLOW);
-
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				MainMenuFrame.window.remove(MainMenuPanel.this);
-				new HowToPlayFrame();
-			}
-		});
+		howToPlay.addMouseListener(new MouseClickLabel(howToPlay));
 		add(howToPlay);
 
 		exit = new JLabel("Exit", JLabel.CENTER);
 		exit = initLabel(exit);
 
-		exit.addMouseListener(new MouseListener() {
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				exit.setForeground(Color.BLACK);
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				exit.setForeground(Color.YELLOW);
-
-			}
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
-
-			}
-		});
+		exit.addMouseListener(new MouseClickLabel(exit));
 		add(exit);
 
 		// masukkin sound
@@ -196,4 +105,66 @@ public class MainMenuPanel extends JPanel {
 			highscore = "" + currHighscore;
 		}
 	}
+
+	class MouseClickLabel implements MouseListener{
+		
+		JLabel tempLabel;
+		
+		public MouseClickLabel(JLabel label){
+			this.tempLabel = label;
+		}
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			
+			if (tempLabel == play || tempLabel == howToPlay || tempLabel == exit)
+			{
+				tempLabel.setForeground(Color.BLACK);
+			}
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+
+			if (tempLabel == play || tempLabel == howToPlay || tempLabel == exit)
+			{
+				tempLabel.setForeground(Color.YELLOW);
+			}
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			
+			if (tempLabel == play)
+			{
+				MainMenuFrame.window.remove(MainMenuPanel.this);
+				new WindowFrame();
+			}
+			else if (tempLabel == howToPlay)
+			{
+				MainMenuFrame.window.remove(MainMenuPanel.this);
+				new HowToPlayFrame();
+			}
+			else if (tempLabel == exit)
+			{
+				System.exit(0);
+			}
+			
+		}
+
+
+	}
+
 }
