@@ -10,7 +10,7 @@ public class NextPiece extends Piece {
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
+	
 	public void render(Graphics g) {
 		for (int y = 0; y < coords.length; y++) {
 			for (int x = 0; x < coords[y].length; x++) {
