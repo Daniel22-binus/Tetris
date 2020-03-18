@@ -1,6 +1,5 @@
 package source;
 
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 public class Piece {
@@ -23,10 +22,6 @@ public class Piece {
 		this.coords = coords;
 		this.board = board;
 		this.color = color;
-
-	}
-
-	protected void render(Graphics g) {
 
 	}
 
