@@ -40,6 +40,15 @@ public class MainMenuPanel extends JPanel {
 		g.drawImage(cube, 250, 30, 130, 130, null);
 	}
 
+	public JLabel initLabel(JLabel MyLabel)
+	{
+		MyLabel.setBounds(60, 213, 500, 50);
+		MyLabel.setFont(new Font("Orange Kid", Font.BOLD, 36));
+		MyLabel.setForeground(Color.BLACK);
+
+		return MyLabel;
+	}
+
 	public MainMenuPanel() {
 		setLayout(null);
 
@@ -61,9 +70,8 @@ public class MainMenuPanel extends JPanel {
 		// add(title);
 
 		play = new JLabel("Play", JLabel.CENTER);
-		play.setBounds(60, 170, 500, 50);
-		play.setFont(new Font("Orange Kid", Font.BOLD, 36));
-		play.setForeground(Color.BLACK);
+		play = initLabel(play);
+
 		play.addMouseListener(new MouseListener() {
 
 			@Override
@@ -99,9 +107,8 @@ public class MainMenuPanel extends JPanel {
 		add(play);
 
 		howToPlay = new JLabel("How To Play", JLabel.CENTER);
-		howToPlay.setBounds(60, 213, 500, 50);
-		howToPlay.setFont(new Font("Orange Kid", Font.BOLD, 36));
-		howToPlay.setForeground(Color.BLACK);
+		howToPlay = initLabel(howToPlay);
+
 		howToPlay.addMouseListener(new MouseListener() {
 
 			@Override
@@ -137,9 +144,8 @@ public class MainMenuPanel extends JPanel {
 		add(howToPlay);
 
 		exit = new JLabel("Exit", JLabel.CENTER);
-		exit.setBounds(60, 250, 500, 50);
-		exit.setFont(new Font("Orange Kid", Font.BOLD, 36));
-		exit.setForeground(Color.BLACK);
+		exit = initLabel(exit);
+
 		exit.addMouseListener(new MouseListener() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
