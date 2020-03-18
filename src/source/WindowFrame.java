@@ -2,26 +2,18 @@ package source;
 
 import javax.swing.JFrame;
 
-public class WindowFrame extends JFrame {
-
-	public static final int WIDTH = 640, HEIGHT = 720;
+public class WindowFrame extends MyFrame {
 
 	public WindowFrame() {
-		setTitle("Game Legendaris Klasik Susun Balok Lucu Warna-Warni Hanya Menyerupai tapi Bukan TETRIS 2019");
-
-		setSize(WIDTH, HEIGHT);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
-		setResizable(false);
 
 		Board board = new Board();
-		add(board);
+		this.add(board);
 
-		setGlassPane(new GlassPane());
-		getGlassPane().setVisible(true);
-		addKeyListener(board);
+		this.setGlassPane(new GlassPane());
+		this.getGlassPane().setVisible(true);
+		this.addKeyListener(board);
 
-		setVisible(true);
+		this.setVisible(true);
 	}
 
 }
